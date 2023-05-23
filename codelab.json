@@ -2,26 +2,24 @@
   "environment": "web",
   "format": "html",
   "prefix": "https://storage.googleapis.com",
-  "mainga": "UA-193960361-1",
-  "updated": "2023-05-23T14:50:49Z",
+  "mainga": "UA-49880327-14",
+  "updated": "2023-05-23T21:00:33Z",
   "id": "danatrace.github.io",
-  "duration": 30,
-  "title": "Deploying Easytravel @ 127.0.0.1",
+  "duration": 1,
+  "title": "",
   "authors": "daniel.braaf",
   "summary": "POC Sandbox",
-  "source": "markdown/pocsandbox/danatrace.github.io/README.md",
+  "source": "setup-sandbox-poc.md",
   "theme": "",
   "status": [
     "published"
   ],
   "category": [
     "sandbox",
-    "eks",
-    "localhost"
+    "eks"
   ],
   "tags": [
     "poc-sandbox"
   ],
-  "ga": "UA-193960361-1",
   "url": "danatrace.github.io"
 }

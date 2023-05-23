@@ -9,7 +9,7 @@
   "title": "Deploying Easytravel @ 127.0.0.1",
   "authors": "daniel.braaf",
   "summary": "POC Sandbox",
-  "source": "README.md",
+  "source": "markdown/pocsandbox/danatrace.github.io/README.md",
   "theme": "",
   "status": [
     "published"

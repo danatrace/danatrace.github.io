@@ -9,7 +9,7 @@
   <title>Deploying Easytravel @ 127.0.0.1</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements-tmp/codelab-elements.css">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
   <style>
     .success {
       color: #1e8e3e;
@@ -20,57 +20,33 @@
   </style>
 </head>
 <body>
-  <google-codelab-analytics gaid="UA-193960361-1"></google-codelab-analytics>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid="UA-193960361-1"
-                  id="deploy-easytravel-at-localhost"
+                  id="POC-Sandbox Setup"
                   title="Deploying Easytravel @ 127.0.0.1"
                   environment="web"
                   feedback-link="">
     
-      <google-codelab-step label="Introduction" duration="1">
-        <p>for learning, and playing around there is nothing better than having a separate VM that you can break. This can be either an instance in a cloud provider or a virtual machine @ localhost. On your working station you can use a docker container with an ubuntu image or <a href="https://multipass.run/" target="_blank">https://multipass.run/</a>. Multipass is a great way to instantiate Ubuntu VMs and runs on Linux, Mac and Windows. it&#39;s made by the Ubuntu team highly optimized.</p>
-<p>In this Codelab we will learn how to spin a machine on Multipass and run easytravel and the Dynatrace OneAgent in there.</p>
+      <google-codelab-step label="Introduction" duration="5">
+        <p>Welcome to the Dynatrace POC-Sandbox.<br>The POC-Sandbox is a hands on environment meant to demonstrate the ease of use of the Dynatrace Platform.</p>
 <aside class="special"><p>Spend more time innovating 😄⚗️ and less time configuring 😣🛠</p>
 </aside>
-<table>
-<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="drawing" style="width: 250.00px" src="img/6f7da9a1906c3e86.png"></p>
-</td><td colspan="1" rowspan="1"><p class="image-container"><img alt="drawing" style="width: 250.00px" src="img/a55a050e0aaa0ba5.png"></p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p class="image-container"><img alt="drawing" style="width: 250.00px" src="img/f0a3c0f65a2120ca.png"></p>
-</td><td colspan="1" rowspan="1"><p class="image-container"><img alt="drawing" style="width: 250.00px" src="img/cf5bd594d821bfd7.png"></p>
-</td></tr>
-</table>
-<aside class="special"><p>⏰ This tutorial is dynamic, meaning the time calculated depends on the customization you provide. The most common customizations are reflected in its own steps. As you go along on this tutorial you&#39;ll find <code>recommended</code>⦿ and <code>optional</code>○ steps which you&#39;ll be able to skip if not desired.</p>
+<aside class="special"><p>In this section we will create a connection between your Dynatrace tenant and POC-Sandbox.</p>
 </aside>
-<table>
-<tr></tr>
-<tr><td colspan="1" rowspan="1"><p>Recommended</p>
-</td><td colspan="1" rowspan="1"><p>⦿</p>
-</td></tr>
-<tr><td colspan="1" rowspan="1"><p>Optional</p>
-</td><td colspan="1" rowspan="1"><p>○</p>
-</td></tr>
-</table>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Get your VM ( ○ Multipass)" duration="5">
-        <aside class="special"><p>In this section we will explore how to create a VM on <a href="https://multipass.run/" target="_blank">multipass</a>! a great way for spinning instant Ubuntu VMs in Windows, Mac or Linux computers. You can also use the cloud provider of your choice.</p>
-</aside>
-<aside class="warning"><p>You can skip this section f you have already a VM. Or you can get one from the ☁️ Cloud. Don&#39;t have a VM or a Cloud Account? Don&#39;t worry, here you can sign for a free tier in <a href="https://aws.amazon.com/free/" target="_blank">Amazon Web Services</a>, <a href="https://azure.microsoft.com/en-us/free/" target="_blank">Microsoft Azure</a> or <a href="https://cloud.google.com/free" target="_blank">Google Cloud</a></p>
-</aside>
-<h2 is-upgraded>Download &amp; Install Multipass on your OS</h2>
-<p>Download multipass and install it depending on your OS <a href="https://multipass.run/" target="_blank">https://multipass.run/</a></p>
-<h2 is-upgraded>Show the help</h2>
-<pre><code>multipass -h
+<h2 is-upgraded>Download the key-pair from the Sandbox creation completion email</h2>
+<p class="image-container"><img alt="Dynatrace PaaS Token" src="img/7555b012b2d73783.png"></p>
+<h2 is-upgraded>Open a Command Line prompt and access the directory where the key was downloaded</h2>
+<pre><code>C:\Users\user\Downloads&gt;
+</code></pre>
+<h2 is-upgraded>Copy the 2 commands from the Sandbox creation completion email</h2>
+<pre><code>aws eks --region us-east-1 update-kubeconfig --name {your-tenant-id}-sandbox
 </code></pre>
 <h2 is-upgraded>Create a VM with x size</h2>
 <pre><code>multipass launch --name &lt;vm-name&gt; --mem 4G --disk 10G --cpus 2
 ## e.g. for easytravel 
 multipass launch --name easytravel --mem 4G --disk 10G --cpus 2
 </code></pre>
-<h2 is-upgraded>Start the VM</h2>
+<h2 is-upgraded>Start the VM	</h2>
 <pre><code>multipass start &lt;vm-name&gt;
 ## e.g. for easytravel 
 multipass start easytravel
@@ -81,7 +57,7 @@ multipass start easytravel
 ## e.g. for easytravel 
 multipass shell easytravel
 </code></pre>
-<h2 is-upgraded>Stop the VM</h2>
+<h2 is-upgraded>Stop the VM	</h2>
 <pre><code>multipass stop &lt;vm-name&gt;
 ## e.g. for easytravel 
 multipass shell easytravel
@@ -106,7 +82,7 @@ multipass shell easytravel
     
       <google-codelab-step label="Install Easytravel &amp; OneAgent" duration="10">
         <h2 is-upgraded>Download install script</h2>
-<p>Download help script to install Easytravel, Nginx, Docker and other utils</p>
+<p>Download help script to install Easytravel, Nginx, Docker and other utils	</p>
 <pre><code>wget https://raw.githubusercontent.com/dynatrace-perfclinics/why-devs-love-dynatrace/main/easytravel/ubuntu-setup-easytravel.sh
 </code></pre>
 <h2 is-upgraded>Add your Dynatrace credentials</h2>
@@ -197,7 +173,7 @@ installation done
 <h2 is-upgraded>Kill all processes</h2>
 <pre><code>ps -ef | grep -i easytravel | awk &#39;{print &#34;sudo kill -9 &#34;$2}&#39; | sh
 </code></pre>
-<h2 is-upgraded>Start easyTravel as UBUNTU (not root)</h2>
+<h2 is-upgraded>Start easyTravel as UBUNTU (not root)	</h2>
 <p>If you happen to install easytravel as root, you might want to change recursively all the rights of the easytravel installation folder so all processes can run properly</p>
 <pre><code>sudo bash ubuntu-setup-easytravel.sh -s
 </code></pre>
@@ -232,10 +208,10 @@ installation done
     
   </google-codelab>
 
-  <script src="https://storage.googleapis.com/codelab-elements-tmp/native-shim.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements-tmp/custom-elements.min.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements-tmp/prettify.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements-tmp/codelab-elements.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
 
 </body>
 </html>

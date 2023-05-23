@@ -1,58 +1,38 @@
 summary: Deploy Easytravel @ 127.0.0.1
-id: deploy-easytravel-at-localhost
-categories: easytravel, DEM, localhost
-tags: easytravel
+id: POC-Sandbox Setup
+categories: Sandbox, EKS, 
+tags: POC-Sandbox
 status: Published
-authors: sergio.hinojosa
+authors: daniel.braaf
 Analytics Account: UA-193960361-1
 # Deploying Easytravel @ 127.0.0.1
 
 ## Introduction 
 Duration: 1
 
-for learning, and playing around there is nothing better than having a separate VM that you can break. This can be either an instance in a cloud provider or a virtual machine @ localhost. On your working station you can use a docker container with an ubuntu image or [https://multipass.run/](https://multipass.run/). Multipass is a great way to instantiate Ubuntu VMs and runs on Linux, Mac and Windows. it's made by the Ubuntu team highly optimized. 
-
-In this Codelab we will learn how to spin a machine on Multipass and run easytravel and the Dynatrace OneAgent in there. 
+Welcome to the Dynatrace POC-Sandbox.
+The POC-Sandbox is a hands on environment meant to demonstrate the ease of use of the Dynatrace Platform. 
 
 Positive
 : Spend more time innovating 😄⚗️ and less time configuring 😣🛠
 
-<table style="width:100%;">
-  <tr>
-    <td><img src="img/angular.png" alt="drawing" width="250"/></td>
-    <td><img src="img/classic.png" alt="drawing" width="250"/></td>
-  </tr>
-  <tr>
-    <td><img src="img/admin.png" alt="drawing" width="250"/> </td>
-    <td><img src="img/amp.png" alt="drawing" width="250"/> </td>
-  </tr>
-</table>
-
-
-Positive
-: ⏰ This tutorial is dynamic, meaning the time calculated depends on the customization you provide. The most common customizations are reflected in its own steps. As you go along on this tutorial you'll find `recommended`⦿ and `optional`○ steps which you'll be able to skip if not desired. 
-
-|            |            |
-|------------|------------|
-| Recommended|     ⦿      |
-| Optional   |     ○      |
-
-
-## Get your VM ( ○ Multipass)
 Duration: 5
 
 Positive
-: In this section we will explore how to create a VM on [multipass](https://multipass.run/)! a great way for spinning instant Ubuntu VMs in Windows, Mac or Linux computers. You can also use the cloud provider of your choice.
+: In this section we will create a connection between your Dynatrace tenant and POC-Sandbox.
 
-Negative 
-: You can skip this section f you have already a VM. Or you can get one from the ☁️ Cloud. Don't have a VM or a Cloud Account? Don't worry, here you can sign for a free tier in [Amazon Web Services](https://aws.amazon.com/free/), [Microsoft Azure](https://azure.microsoft.com/en-us/free/) or [Google Cloud](https://cloud.google.com/free)
 
-### Download & Install Multipass on your OS
-Download multipass and install it depending on your OS [https://multipass.run/](https://multipass.run/)
+### Download the key-pair from the Sandbox creation completion email
+# ![Dynatrace PaaS Token](./img/dt_paas_token.png)
 
-### Show the help
+### Open a Command Line prompt and access the directory where the key was downloaded
 ```bash
-multipass -h
+C:\Users\user\Downloads>
+```
+
+### Copy the 2 commands from the Sandbox creation completion email
+```bash
+aws eks --region us-east-1 update-kubeconfig --name {your-tenant-id}-sandbox
 ```
 
 ###  Create a VM with x size

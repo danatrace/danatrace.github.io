@@ -2,26 +2,26 @@
   "environment": "web",
   "format": "html",
   "prefix": "https://storage.googleapis.com",
-  "mainga": "UA-193960361-1",
-  "updated": "2021-04-13T18:07:42+02:00",
-  "id": "deploy-easytravel-at-localhost",
+  "mainga": "UA-49880327-14",
+  "updated": "2023-05-23T14:35:40Z",
+  "id": "POC-Sandbox Setup",
   "duration": 30,
   "title": "Deploying Easytravel @ 127.0.0.1",
-  "authors": "sergio.hinojosa",
+  "authors": "daniel.braaf",
   "summary": "Deploy Easytravel @ 127.0.0.1",
-  "source": "codelabs/markdown/easytravel-localhost/README.md",
+  "source": "README.md",
   "theme": "",
   "status": [
     "published"
   ],
   "category": [
-    "easytravel",
-    "dem",
-    "localhost"
+    "sandbox",
+    "eks",
+    ""
   ],
   "tags": [
-    "easytravel"
+    "poc-sandbox"
   ],
   "ga": "UA-193960361-1",
-  "url": "deploy-easytravel-at-localhost"
+  "url": "POC-Sandbox Setup"
 }

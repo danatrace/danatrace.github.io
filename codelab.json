@@ -2,7 +2,7 @@
   "environment": "web",
   "format": "html",
   "prefix": "https://storage.googleapis.com",
-  "mainga": "UA-49880327-14",
+  "mainga": "UA-193960361-1",
   "updated": "2023-05-23T14:50:49Z",
   "id": "danatrace.github.io",
   "duration": 30,
@@ -17,7 +17,7 @@
   "category": [
     "sandbox",
     "eks",
-    ""
+    "localhost"
   ],
   "tags": [
     "poc-sandbox"
